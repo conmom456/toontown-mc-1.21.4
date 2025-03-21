@@ -1,0 +1,11 @@
+{
+	"required": true,
+	"package": "conmom.toontownmc.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+		"ExampleMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
