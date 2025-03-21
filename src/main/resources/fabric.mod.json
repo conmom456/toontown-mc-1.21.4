@@ -1,6 +1,6 @@
 {
 	"schemaVersion": 1,
-	"id": "toontown-mc",
+	"id": "toontownmc",
 	"version": "${version}",
 	"name": "Toontown MC",
 	"description": "Toontown in Minecraft!",
