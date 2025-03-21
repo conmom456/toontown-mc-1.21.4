@@ -2,6 +2,7 @@ package conmom.toontownmc
 
 import conmom.block.ModBlocks
 import conmom.item.ModItems
+import conmom.sound.ModSounds
 import net.fabricmc.api.ModInitializer
 import org.slf4j.LoggerFactory
 
@@ -16,5 +17,6 @@ object ToontownMC : ModInitializer {
 		logger.info("Hello Fabric world!")
 		ModItems.registerModItems()
 		ModBlocks.registerModBlocks()
+		ModSounds.registerSounds()
 	}
 }

@@ -34,7 +34,7 @@ object ModBlocks {
     }
 
     fun registerModBlocks() {
-        ToontownMC.logger.info("Registering mod blocks for {${ToontownMC.MOD_ID}}")
+        ToontownMC.logger.info("Registering mod blocks for ${ToontownMC.MOD_ID}")
 
 //        ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register { entries ->
 //            entries.add(ModBlocks.MISSING_NO)

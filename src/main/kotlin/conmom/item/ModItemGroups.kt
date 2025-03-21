@@ -13,7 +13,8 @@ import net.minecraft.util.Identifier
 object ModItemGroups {
     val THROW = registerItemGroup("throw", "itemgroup.toontownmc.throw", ItemStack(ModItems.CUPCAKE), mutableListOf(
         ItemStack(ModItems.CUPCAKE),
-        ItemStack(ModItems.CUPCAKE2)))
+        ItemStack(ModItems.CUPCAKE2)
+    ))
 
     val MISC = registerItemGroup("misc", "itemgroup.toontownmc.misc", ItemStack(ModBlocks.MISSING_NO), mutableListOf(
         ItemStack(ModBlocks.MISSING_NO)))
