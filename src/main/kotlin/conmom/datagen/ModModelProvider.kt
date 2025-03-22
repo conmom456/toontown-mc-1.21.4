@@ -16,6 +16,11 @@ class ModModelProvider(generator: FabricDataOutput) :
 
     override fun generateItemModels(itemModelGenerator: ItemModelGenerator) {
         itemModelGenerator.register(ModItems.CUPCAKE, Models.GENERATED)
-        itemModelGenerator.register(ModItems.CUPCAKE2, Models.GENERATED)
+        itemModelGenerator.register(ModItems.FRUIT_PIE_SLICE, Models.GENERATED)
+        itemModelGenerator.register(ModItems.CREAM_PIE_SLICE, Models.GENERATED)
+        itemModelGenerator.register(ModItems.WHOLE_FRUIT_PIE, Models.GENERATED)
+        itemModelGenerator.register(ModItems.WHOLE_CREAM_PIE, Models.GENERATED)
+        itemModelGenerator.register(ModItems.BIRTHDAY_CAKE, Models.GENERATED)
+        itemModelGenerator.register(ModItems.WEDDING_CAKE, Models.GENERATED)
     }
 }

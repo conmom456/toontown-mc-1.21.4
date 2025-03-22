@@ -11,12 +11,37 @@ import net.minecraft.registry.RegistryKeys
 import net.minecraft.util.Identifier
 
 object ModItems {
-    val CUPCAKE = registerItem("cupcake", Item(Item.Settings()
-        .registryKey(getKey("cupcake"))))
-    val CUPCAKE2 = registerItem("cupcake2", Cupcake(Item.Settings()
+//    Throw Gags
+    val CUPCAKE = registerItem("cupcake", Cupcake(Item.Settings()
         .maxCount(10)
         .food(FoodComponent(2, 4F, false))
-        .registryKey(getKey("cupcake2"))))
+        .registryKey(getKey("cupcake"))))
+    val FRUIT_PIE_SLICE = registerItem("fruit_pie_slice", Cupcake(Item.Settings()
+        .maxCount(10)
+        .food(FoodComponent(2, 4F, false))
+        .registryKey(getKey("fruit_pie_slice"))))
+    val CREAM_PIE_SLICE = registerItem("cream_pie_slice", Cupcake(Item.Settings()
+        .maxCount(10)
+        .food(FoodComponent(2, 4F, false))
+        .registryKey(getKey("cream_pie_slice"))))
+    val WHOLE_FRUIT_PIE = registerItem("whole_fruit_pie", Cupcake(Item.Settings()
+        .maxCount(10)
+        .food(FoodComponent(2, 4F, false))
+        .registryKey(getKey("whole_fruit_pie"))))
+    val WHOLE_CREAM_PIE = registerItem("whole_cream_pie", Cupcake(Item.Settings()
+        .maxCount(10)
+        .food(FoodComponent(2, 4F, false))
+        .registryKey(getKey("whole_cream_pie"))))
+    val BIRTHDAY_CAKE = registerItem("birthday_cake", Cupcake(Item.Settings()
+        .maxCount(10)
+        .food(FoodComponent(2, 4F, false))
+        .registryKey(getKey("birthday_cake"))))
+    val WEDDING_CAKE = registerItem("wedding_cake", Cupcake(Item.Settings()
+        .maxCount(10)
+        .food(FoodComponent(2, 4F, false))
+        .registryKey(getKey("wedding_cake"))))
+
+
 
     private fun registerItem(name: String, item: Item): Item {
         val key = getKey(name)

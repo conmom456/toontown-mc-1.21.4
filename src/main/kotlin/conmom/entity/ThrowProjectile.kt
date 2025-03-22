@@ -1,6 +1,7 @@
 package conmom.entity
 
 import conmom.sound.ModSounds
+import conmom.toontownmc.ToontownMC
 import net.minecraft.entity.EntityStatuses
 import net.minecraft.entity.LivingEntity
 import net.minecraft.entity.projectile.thrown.SnowballEntity
@@ -8,12 +9,27 @@ import net.minecraft.item.ItemStack
 import net.minecraft.server.world.ServerWorld
 import net.minecraft.sound.SoundCategory
 import net.minecraft.util.hit.EntityHitResult
+import net.minecraft.util.hit.HitResult
 
 class ThrowProjectile(world: ServerWorld?, owner: LivingEntity?, stack: ItemStack?): SnowballEntity(world, owner, stack) {
     override fun onEntityHit(entityHitResult: EntityHitResult?) {
         super.onEntityHit(entityHitResult)
         val entity = entityHitResult!!.entity
-        entity.damage(world as ServerWorld?, this.damageSources.thrown(this, this.owner), 6.0f)
+        if (entity is LivingEntity) {
+            var damage = 0
+            when (this.stack.registryEntry.idAsString) {
+                "toontownmc:cupcake" -> damage = 6
+                "toontownmc:fruit_pie_slice" -> damage = 12
+                "toontownmc:cream_pie_slice" -> damage = 17
+                "toontownmc:whole_fruit_pie" -> damage = 27
+                "toontownmc:whole_cream_pie" -> damage = 40
+                "toontownmc:birthday_cake" -> damage = 100
+                "toontownmc:wedding_cake" -> damage = 120
+            }
+            ToontownMC.logger.info("Damage is: $damage")
+            entity.damage(world as ServerWorld?, this.damageSources.thrown(this, this.owner), 0.00001f)
+            entity.health -= damage
+        }
 //        world.playSound(
 //            null,
 //            this.x,
@@ -26,8 +42,24 @@ class ThrowProjectile(world: ServerWorld?, owner: LivingEntity?, stack: ItemStac
 //        )
     }
 
-    override fun handleStatus(status: Byte) {
-        if (status == EntityStatuses.PLAY_DEATH_SOUND_OR_ADD_PROJECTILE_HIT_PARTICLES) {
+//    override fun handleStatus(status: Byte) {
+//        if (status == EntityStatuses.PLAY_DEATH_SOUND_OR_ADD_PROJECTILE_HIT_PARTICLES) {
+//            world.playSound(
+//                null,
+//                this.x,
+//                this.y,
+//                this.z,
+//                ModSounds.THROW_HIT_EVENT,
+//                SoundCategory.PLAYERS,
+//                1.0f,
+//                (world.getRandom().nextFloat() * 0.05f + 0.975f)
+//            )
+//        }
+//    }
+
+    override fun onCollision(hitResult: HitResult?) {
+        super.onCollision(hitResult)
+        if (!world.isClient) {
             world.playSound(
                 null,
                 this.x,
@@ -38,6 +70,7 @@ class ThrowProjectile(world: ServerWorld?, owner: LivingEntity?, stack: ItemStac
                 1.0f,
                 (world.getRandom().nextFloat() * 0.05f + 0.975f)
             )
+            this.discard()
         }
     }
 }

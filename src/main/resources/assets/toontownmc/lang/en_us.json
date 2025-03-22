@@ -1,6 +1,12 @@
 {
   "item.toontownmc.cupcake": "Cupcake",
-  "item.toontownmc.cupcake2": "Cupcake 2",
+  "item.toontownmc.fruit_pie_slice": "Fruit Pie Slice",
+  "item.toontownmc.cream_pie_slice": "Cream Pie Slice",
+  "item.toontownmc.whole_fruit_pie": "Whole Fruit Pie",
+  "item.toontownmc.whole_cream_pie": "Whole Cream Pie",
+  "item.toontownmc.birthday_cake": "Birthday Cake",
+  "item.toontownmc.wedding_cake": "Wedding Cake",
+
   "item.toontownmc.missing_no": "Missing No",
 
   "block.toontownmc.missing_no": "Missing No",
