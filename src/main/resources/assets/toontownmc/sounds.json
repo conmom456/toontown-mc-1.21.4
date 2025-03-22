@@ -3,5 +3,10 @@
     "sounds": [
       "toontownmc:gags/throw_gag"
     ]
+  },
+  "gags.throw_hit": {
+    "sounds": [
+      "toontownmc:gags/throw_hit"
+    ]
   }
 }

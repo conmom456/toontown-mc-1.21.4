@@ -11,9 +11,13 @@ object ModSounds {
     val THROW_GAG_ID: Identifier? = Identifier.of("toontownmc:gags.throw_gag")
     val THROW_GAG_EVENT = SoundEvent.of(THROW_GAG_ID)
 
+    val THROW_HIT_ID: Identifier? = Identifier.of("toontownmc:gags.throw_hit")
+    val THROW_HIT_EVENT = SoundEvent.of(THROW_HIT_ID)
+
     fun registerSounds() {
         ToontownMC.logger.info("Registering mod sound for ${ToontownMC.MOD_ID}")
 
         Registry.register(Registries.SOUND_EVENT, THROW_GAG_ID, THROW_GAG_EVENT)
+        Registry.register(Registries.SOUND_EVENT, THROW_HIT_ID, THROW_HIT_EVENT)
     }
 }
