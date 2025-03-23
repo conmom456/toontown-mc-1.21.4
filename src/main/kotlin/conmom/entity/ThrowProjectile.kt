@@ -13,7 +13,6 @@ import net.minecraft.util.hit.HitResult
 
 class ThrowProjectile(world: ServerWorld?, owner: LivingEntity?, stack: ItemStack?): SnowballEntity(world, owner, stack) {
     override fun onEntityHit(entityHitResult: EntityHitResult?) {
-        super.onEntityHit(entityHitResult)
         val entity = entityHitResult!!.entity
         if (entity is LivingEntity) {
             var damage = 0
@@ -27,35 +26,10 @@ class ThrowProjectile(world: ServerWorld?, owner: LivingEntity?, stack: ItemStac
                 "toontownmc:wedding_cake" -> damage = 120
             }
             ToontownMC.logger.info("Damage is: $damage")
-            entity.damage(world as ServerWorld?, this.damageSources.thrown(this, this.owner), 0.00001f)
-            entity.health -= damage
+            entity.damage(world as ServerWorld?, this.damageSources.thrown(this, this.owner), damage.toFloat())
+            entity.hurtTime = 1
         }
-//        world.playSound(
-//            null,
-//            this.x,
-//            this.y,
-//            this.z,
-//            ModSounds.THROW_HIT_EVENT,
-//            SoundCategory.PLAYERS,
-//            1.0f,
-//            (world.getRandom().nextFloat() * 0.05f + 0.975f)
-//        )
     }
-
-//    override fun handleStatus(status: Byte) {
-//        if (status == EntityStatuses.PLAY_DEATH_SOUND_OR_ADD_PROJECTILE_HIT_PARTICLES) {
-//            world.playSound(
-//                null,
-//                this.x,
-//                this.y,
-//                this.z,
-//                ModSounds.THROW_HIT_EVENT,
-//                SoundCategory.PLAYERS,
-//                1.0f,
-//                (world.getRandom().nextFloat() * 0.05f + 0.975f)
-//            )
-//        }
-//    }
 
     override fun onCollision(hitResult: HitResult?) {
         super.onCollision(hitResult)
@@ -70,6 +44,7 @@ class ThrowProjectile(world: ServerWorld?, owner: LivingEntity?, stack: ItemStac
                 1.0f,
                 (world.getRandom().nextFloat() * 0.05f + 0.975f)
             )
+            world.sendEntityStatus(this, EntityStatuses.PLAY_DEATH_SOUND_OR_ADD_PROJECTILE_HIT_PARTICLES)
             this.discard()
         }
     }
